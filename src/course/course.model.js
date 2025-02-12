@@ -9,6 +9,15 @@ const CourseSchema = Schema({
         type: String,
         required: [true, 'Description is required']
     },
+    teacher:{
+        type: Schema.Types.ObjectId,
+        ref: 'user',
+        required: true
+    },
+    students:[{
+        type: Schema.Types.ObjectId,
+        ref: 'user'
+    }],
     status:{
         type: Boolean,
         default: true

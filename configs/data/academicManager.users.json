@@ -1,0 +1,20 @@
+[{
+  "_id": {
+    "$oid": "67ad14bc89327ddeca998070"
+  },
+  "name": "Carlos",
+  "surname": "Cortez",
+  "username": "Papa Cortez",
+  "email": "cortez@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$y/JVm3LLQ4J6lrrOOZsxLA$H9LsmvYUXxB3wdy64+bH2ZifOHkORkmP1VHE8aiGbbM",
+  "phone": "88888888",
+  "role": "TEACHER_ROLE",
+  "estado": true,
+  "courses": [],
+  "createdAt": {
+    "$date": "2025-02-12T21:38:04.011Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-12T21:38:04.011Z"
+  }
+}]
