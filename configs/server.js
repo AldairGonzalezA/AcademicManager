@@ -8,6 +8,7 @@ import { dbConnection } from './mongo.js';
 import limiter from '../src/middlewares/validar-cant-peticiones.js';
 import  authRoutes  from '../src/auth/auth.routes.js';
 import userRoutes from '../src/users/user.routes.js';
+import courseRoutes from '../src/course/course.routes.js';
 
 
 const middlewares = (app) => {
@@ -21,7 +22,8 @@ const middlewares = (app) => {
 
 const routes = (app) =>{
     app.use("/academicManager/v1/auth", authRoutes);
-    app.use("/academicManager/v1/users", userRoutes )
+    app.use("/academicManager/v1/users", userRoutes );
+    app.use("/academicManager/v1/course", courseRoutes);
 }
 
 const connectarDB = async () =>{
@@ -33,7 +35,7 @@ const connectarDB = async () =>{
         process.exit(1);
     }
 }
-
+ 
 export const initServer = async () =>{
     const app = express();
     const port = process.env.PORT || 3000;
@@ -46,5 +48,5 @@ export const initServer = async () =>{
         console.log(`Server running on port ${port}`);
     } catch (err) {
         console.log(`Server init failerd ${err}`);
-    }
+    } 
 }

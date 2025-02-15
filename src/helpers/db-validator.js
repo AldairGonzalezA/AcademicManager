@@ -1,5 +1,7 @@
+import courseModel from '../course/course.model.js';
 import Role from '../role/role.model.js';
 import User from '../users/user.model.js';
+import Course from '../course/course.model.js';
 
 export const esRoleValido = async (role = '') => {
     
@@ -23,5 +25,13 @@ export const existeUserById = async (id= '') => {
 
     if (!existUser) {
         throw new Error(`El usuario con el id ${id} no existe en la base de datos`)
+    }
+}
+
+export const existeCourseById = async (id = '') =>{
+    const existeCourse = await Course.findById(id);
+
+    if(!existeCourse){
+        throw new Error(`El courso con el id ${id} no existe en la base de datos`);
     }
 }

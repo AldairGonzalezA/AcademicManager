@@ -16,7 +16,7 @@ const CourseSchema = Schema({
     },
     students:[{
         type: Schema.Types.ObjectId,
-        ref: 'user'
+        ref: 'User'
     }],
     status:{
         type: Boolean,

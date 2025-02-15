@@ -5,10 +5,12 @@ import User from '../users/user.model.js'
 export const saveCourse = async (req, res) =>{
     try {
         const data = req.body
+        const user = await User.findOne({email: data.email})
 
         const course = await Course.create({
             name: data.name,
             description: data.description,
+            teacher: user.id
         })
 
         return res.status(200).json({
@@ -29,13 +31,14 @@ export const saveCourse = async (req, res) =>{
 export const getCourses = async (req = request, res = response) =>{
     try {
             const {limite = 10, desde = 0} = req.query;
-            const query = { estado: true};
+            const query = { status: true};
 
             const[total, courses] = await Promise.all([
                 Course.countDocuments(query),
                 Course.find(query)
                     .skip(Number(desde))
                     .limit(Number(limite))
+                    .populate('students', 'name surname')
             ])
 
             res.status(200).json({

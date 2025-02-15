@@ -17,7 +17,7 @@ router.post(
     saveCourse
 )
 
-router.get("/".getCourses)
+router.get("/", getCourses)
 
 router.get(
     "/findCourse/:id",
@@ -51,3 +51,5 @@ router.delete(
     ],
     deleteCourse
 )
+
+export default router;

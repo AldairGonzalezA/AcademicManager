@@ -1,6 +1,7 @@
 import { response, request } from "express";
 import { hash } from "argon2";
 import User from "./user.model.js";
+import Course from "../course/course.model.js";
  
 export const getUsers = async (req = request, res = response) => {
     try {
@@ -12,6 +13,8 @@ export const getUsers = async (req = request, res = response) => {
             User.find(query)
                 .skip(Number(desde))
                 .limit(Number(limite))
+                .populate('courses', 'name teacher')
+                .populate('courses.teacher', 'name surname')
         ])
  
         res.status(200).json({
@@ -23,7 +26,7 @@ export const getUsers = async (req = request, res = response) => {
         res.status(500).json({
             sucess: false,
             msg: 'Error al obtener usuarios',
-            error
+            error: error.message || error
         })
     }
 }
@@ -123,6 +126,53 @@ export const deleteUser = async (req, res) => {
             succes: false,
             msg: 'Error al desactivar usuario',
             error
+        })
+    }
+}
+
+export const asignarCourse = async (req, res = response) =>{
+    try {
+        const { id } = req.params;
+        const user = await User.findById(id);
+        const courses = user.courses 
+        const data = req.body;
+        if(courses.length === 3){
+            return res.status(404).json({
+                success: false,
+                msg:"Ya tiene asignados la cantidad maxima de cursos"
+            })
+        }
+        const course = await Course.findOne({name: data.name})
+        if(!course){
+            return res.status(404).json({
+                success: false,
+                msg: "Curso no encontrado"
+            })
+        }
+        if(courses.some((curso) => curso.name === data.name)){
+            return res.status(404).json({
+                success: false,
+                msg: 'Ya se encuentra asignado a este curso'
+            })
+        }
+
+        user.courses.push(course);
+        course.students.push(user);
+        await course.save();
+        const asigned = await user.save()
+
+        res.status(200).json({
+            success: true,
+            msg:'Se asigno al curso exitosamente',
+            asigned
+        })
+
+        
+    } catch (error) {
+        res.status(500).json({
+            success: false,
+            msg:'Error to asigned to the course',
+            error: error.message || error
         })
     }
 }
