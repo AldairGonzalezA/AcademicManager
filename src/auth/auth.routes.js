@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { login, register } from './auth.controller.js';
+import { login, registerTeachers, registerAlumns } from './auth.controller.js';
 import { registerValidator, loginValidator } from '../middlewares/validator.js';
 import { uploadProfilePicture } from '../middlewares/multer-upload.js';
 import { deleteFileOnError } from '../middlewares/deleteFileOnError.js';
@@ -14,11 +14,19 @@ router.post(
 );
 
 router.post(
-    '/register',
+    '/registerAlumns',
     uploadProfilePicture.single("profilePicture"),
     registerValidator,
     deleteFileOnError,
-    register
+    registerAlumns
 );
+
+router.post(
+    "/registerTeacher",
+    uploadProfilePicture.single("profilePicture"),
+    registerValidator,
+    deleteFileOnError,
+    registerTeachers
+)
 
 export default router;

@@ -131,7 +131,7 @@ export const deleteUser = async (req, res) => {
                 });
             }
             
-            res.status(200).json({
+            return res.status(200).json({
                 succes: true,
                 msg: 'Usuario desactivado',
                 user,
@@ -139,7 +139,7 @@ export const deleteUser = async (req, res) => {
             })
         }
 
-        res.status(403).json({
+        return  res.status(403).json({
             success:false,
             msg: `Solo el mismo alumno puede eliminar su perfil o un Profesor`
         })

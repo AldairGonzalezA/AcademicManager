@@ -56,7 +56,7 @@ export const login = async (req,res) =>{
     }
 }
 
-export const register = async (req,res) => {
+export const registerAlumns = async (req,res) => {
    try {
     const data = req.body;
 
@@ -70,7 +70,7 @@ export const register = async (req,res) => {
         email: data.email,
         phone: data.phone,
         password: encryptedPassword,
-        role: data.role
+        role: 'ALUMN_ROLE'
     })
 
     return res.status(200).json({
@@ -87,4 +87,32 @@ export const register = async (req,res) => {
             error: error.mesage
         });
    }
+}
+
+export const registerTeachers = async (req,res )=>{
+    try {
+        const encryptedPassword = await hash(data.password);
+
+        const user = await Usuario.create({
+            name: data.name,
+            surname: data.surname,
+            username: data.username,
+            email: data.email,
+            phone: data.phone,
+            password: encryptedPassword,
+            role: 'TEACHER_ROLE'
+        })
+    
+        return res.status(200).json({
+            message: "User registered successfully",
+            userDetails: {
+                user: user.email
+            }
+        })
+    } catch (error) {
+        return res.status(500).json({
+            msg:"User registration failer",
+            error: error.mesage
+        })
+    }
 }
