@@ -1,0 +1,62 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "User",
+    "collectionId": "31416828-1981-4542-8428-e65c233d231a",
+    "dateExported": "2025-02-17T05:44:49.718Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "dcdf86b1-f11e-4119-971e-9573216337e9",
+            "colId": "31416828-1981-4542-8428-e65c233d231a",
+            "containerId": "",
+            "name": "GetUsers",
+            "url": "http://localhost:3000/academicManager/v1/users/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-02-15T04:56:27.580Z",
+            "modified": "2025-02-17T05:14:23.580Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "_id": "a7b95318-e6c0-4cfa-9a05-6d43e3b926e9",
+            "colId": "31416828-1981-4542-8428-e65c233d231a",
+            "containerId": "",
+            "name": "AssigCourse",
+            "url": "http://localhost:3000/academicManager/v1/users/assigCourse/67b2a6b481202ad86f78afbc",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2025-02-15T06:20:10.240Z",
+            "modified": "2025-02-17T03:19:24.775Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Taller\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "6f015bf6-938c-4284-b49f-2a4474de23a5",
+            "colId": "31416828-1981-4542-8428-e65c233d231a",
+            "containerId": "",
+            "name": "DeleteUser",
+            "url": "http://localhost:3000/academicManager/v1/users/67b2a6b481202ad86f78afbc",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2025-02-17T05:09:47.773Z",
+            "modified": "2025-02-17T05:40:42.155Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IyYTZiNDgxMjAyYWQ4NmY3OGFmYmMiLCJpYXQiOjE3Mzk3NzA4MjgsImV4cCI6MTczOTc3NDQyOH0.Y9CPuUiGDymm4Wg0kaiyr18SgeA-AGkD6pOSAF_Ps30"
+                }
+            ]
+        }
+    ],
+    "ref": "AuMzrIpIr_o2QgvLdTCuGySO71pIMMr2mAufuTNR6FiqAJQtJCKfiqqBJOCXwlAPIjA3AO6uF_FEWG1HV9nQ2g"
+}

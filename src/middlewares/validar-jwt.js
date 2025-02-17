@@ -15,7 +15,7 @@ export const validarJWT = async(req, res, next) => {
         const usuario = await Usuario.findById(uid);
 
         if (!usuario) {
-            return res.satus(401).json({
+            return res.status(401).json({
                 msg: 'Usuario no exixte en la base de datos'
             })
         }

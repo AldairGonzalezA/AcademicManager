@@ -1,0 +1,66 @@
+[{
+  "_id": {
+    "$oid": "67b01d03919dc9bce85678e3"
+  },
+  "name": "Taller",
+  "description": "Curso para apreder Programacion",
+  "teacher": {
+    "$oid": "67ad14bc89327ddeca998070"
+  },
+  "students": [
+    {
+      "$oid": "67b01e5f919dc9bce85678e7"
+    }
+  ],
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-15T04:50:11.030Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-17T05:42:30.530Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b01ebf919dc9bce85678ed"
+  },
+  "name": "Tecnologia",
+  "description": "Curso para apreder de computadoras",
+  "teacher": {
+    "$oid": "67ad14bc89327ddeca998070"
+  },
+  "students": [
+    {
+      "$oid": "67b01e5f919dc9bce85678e7"
+    }
+  ],
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-15T04:57:35.332Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-17T02:59:59.356Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b2a4c881202ad86f78afa4"
+  },
+  "name": "Fisica",
+  "description": "Curso para aprender Leyes de la Fisica",
+  "teacher": {
+    "$oid": "67ad14bc89327ddeca998070"
+  },
+  "students": [
+    {
+      "$oid": "67b01e5f919dc9bce85678e7"
+    }
+  ],
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-17T02:54:00.103Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-17T05:42:30.522Z"
+  }
+}]

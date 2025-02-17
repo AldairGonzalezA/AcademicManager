@@ -33,6 +33,7 @@ router.get(
 router.put(
     "/:id",
     [
+        validarJWT,
         tieneRol("TEACHER_ROLE"),
         check("id", "ID is invalid").isMongoId(),
         //check("id")custom(existeCourseById),

@@ -1,0 +1,67 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "Course",
+    "collectionId": "2a2bb3ab-c450-4f87-9638-dd0c0fb41c63",
+    "dateExported": "2025-02-17T05:44:35.688Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "449a3715-8d97-47ac-a7f3-6913981a0b45",
+            "colId": "2a2bb3ab-c450-4f87-9638-dd0c0fb41c63",
+            "containerId": "",
+            "name": "GetCourses",
+            "url": "http://localhost:3000/academicManager/v1/course/",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2025-02-15T04:40:40.615Z",
+            "modified": "2025-02-15T06:37:22.175Z",
+            "headers": []
+        },
+        {
+            "_id": "94ddad5a-ad3e-41b2-802f-2abec26e21a2",
+            "colId": "2a2bb3ab-c450-4f87-9638-dd0c0fb41c63",
+            "containerId": "",
+            "name": "SaveCourse",
+            "url": "http://localhost:3000/academicManager/v1/course/",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2025-02-15T04:41:56.741Z",
+            "modified": "2025-02-17T02:54:00.130Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMTRiYzg5MzI3ZGRlY2E5OTgwNzAiLCJpYXQiOjE3Mzk3NjA4MDUsImV4cCI6MTczOTc2NDQwNX0.0oB_zFwdCOxpM06BS3YQzurXtq_PzxQUJYMwPCECRvE"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Matematicas\",\n  \"description\":\"Curso para apreder de word\",\n  \"email\":\"cortez@gmail.com\"\n  \n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "4f951036-95c2-4f60-a3ec-625cb34c0a79",
+            "colId": "2a2bb3ab-c450-4f87-9638-dd0c0fb41c63",
+            "containerId": "",
+            "name": "UpdateCourse",
+            "url": "http://localhost:3000/academicManager/v1/course/67b2a4c881202ad86f78afa4",
+            "method": "PUT",
+            "sortNum": 40000,
+            "created": "2025-02-17T04:35:05.418Z",
+            "modified": "2025-02-17T04:38:01.999Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2FkMTRiYzg5MzI3ZGRlY2E5OTgwNzAiLCJpYXQiOjE3Mzk3NjcwMDEsImV4cCI6MTczOTc3MDYwMX0.9f-pD2LhvvV8TGGD2RKT3ts-WL4mceXN8JDbOdpkmRg"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Fisica\",\n  \"description\":\"Curso para aprender Leyes de la Fisica\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "-cuNJoh2WbfX7MKgVb5XVw2p5MSV5DnI_L16L93qprCs2bui1uTes_iTeLblX9Q9WmbKkg6krJ743JPbOyzzDw"
+}

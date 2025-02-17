@@ -73,7 +73,7 @@ export const register = async (req,res) => {
         role: data.role
     })
 
-    return res.status(201).json({
+    return res.status(200).json({
         message: "User registered successfully",
         userDetails: {
             user: user.email

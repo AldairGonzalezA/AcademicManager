@@ -1,0 +1,45 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "auth",
+    "collectionId": "0360b36e-6faa-4fe0-a229-899ca86fcd27",
+    "dateExported": "2025-02-17T05:44:57.858Z",
+    "version": "1.2",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "5add6883-e165-461a-bd39-c2e47dfe14be",
+            "colId": "0360b36e-6faa-4fe0-a229-899ca86fcd27",
+            "containerId": "",
+            "name": "Login",
+            "url": "http://localhost:3000/academicManager/v1/auth/login",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2025-02-15T04:51:35.912Z",
+            "modified": "2025-02-17T05:12:54.708Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"jimena@gmail.com\",\n  \"password\":\"22222222\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "bbf867cd-eb5e-4f28-8e44-ff0d54e02983",
+            "colId": "0360b36e-6faa-4fe0-a229-899ca86fcd27",
+            "containerId": "",
+            "name": "Register",
+            "url": "http://localhost:3000/academicManager/v1/auth/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2025-02-15T04:51:43.055Z",
+            "modified": "2025-02-17T03:02:12.134Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\":\"Jimena\",\n  \"surname\":\"Ramirez\",\n  \"username\":\"JR\",\n  \"email\":\"jimena@gmail.com\",\n  \"password\":\"22222222\",\n  \"phone\":\"12345678\",\n  \"role\":\"ALUMN_ROLE\"\n}",
+                "form": []
+            }
+        }
+    ],
+    "ref": "hq2J89eaFj9erPTOn98MnT2nLcELkw0n5RrGP44KRCIYTSfdApxrzw6O5ioJD-_RipfXNw-RWCV_mL0YDnXDAw"
+}

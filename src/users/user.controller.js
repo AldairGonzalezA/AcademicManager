@@ -103,7 +103,7 @@ export const updatePassword = async (req, res = response) => {
         res.status(500).json({
             success: false,
             msg: 'Error to update password',
-            error
+            error: error.message
         })
     }
 }
@@ -111,17 +111,41 @@ export const updatePassword = async (req, res = response) => {
 export const deleteUser = async (req, res) => {
     try {
         const {id} = req.params;
-        const user = await User.findByIdAndUpdate(id, {estado: false}, {new: true});
-        const autheticatedUser = req.user;
+        const autheticatedUser = req.usuario;
+        if(autheticatedUser._id.toString() === id || autheticatedUser.role === "TEACHER_ROLE"){
+            const user = await User.findByIdAndUpdate(id, {estado: false}, {new: true});
+            const courses = await user.courses;
+            for(let courseId of courses){
+                await Course.findByIdAndUpdate(courseId,{
+                    $pull: {students: user._id}
+                });
+                await User.findByIdAndUpdate(id,{
+                    $pull: {courses: courseId}
+                });
+            }
+            
+            if (!user) {
+                return res.status(404).json({
+                    success: false,
+                    msg: "Usuario no encontrado"
+                });
+            }
+            
+            res.status(200).json({
+                succes: true,
+                msg: 'Usuario desactivado',
+                user,
+                autheticatedUser
+            })
+        }
 
-        res.status(200).json({
-            succes: true,
-            msg: 'Usuario desactivado',
-            user,
-            autheticatedUser
+        res.status(403).json({
+            success:false,
+            msg: `Solo el mismo alumno puede eliminar su perfil o un Profesor`
         })
 
     } catch (error) {
+        console.error("Error en deleteUser:", error);
         res.status(500).json({
             succes: false,
             msg: 'Error al desactivar usuario',
@@ -134,7 +158,7 @@ export const asignarCourse = async (req, res = response) =>{
     try {
         const { id } = req.params;
         const user = await User.findById(id);
-        const courses = user.courses 
+        const courses = await User.findById(id).select("courses");
         const data = req.body;
         if(courses.length === 3){
             return res.status(404).json({
@@ -144,13 +168,13 @@ export const asignarCourse = async (req, res = response) =>{
         }
         const course = await Course.findOne({name: data.name})
         if(!course){
-            return res.status(404).json({
+            return res.status(400).json({
                 success: false,
                 msg: "Curso no encontrado"
             })
         }
-        if(courses.some((curso) => curso.name === data.name)){
-            return res.status(404).json({
+        if(user.courses.some((cursoId) => cursoId.toString() === course._id.toString())){
+            return res.status(400).json({
                 success: false,
                 msg: 'Ya se encuentra asignado a este curso'
             })
