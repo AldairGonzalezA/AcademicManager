@@ -36,7 +36,9 @@ export const getUserById = async (req, res) => {
  
         const { id } = req.params;
  
-        const user = await User.findById(id);
+        const user = await User.findById(id).populate([
+            {path: 'courses', select: 'name teacher'}
+        ]);
  
         if(!user){
             return res.status(404).json({

@@ -51,16 +51,30 @@
   "teacher": {
     "$oid": "67ad14bc89327ddeca998070"
   },
-  "students": [
-    {
-      "$oid": "67b01e5f919dc9bce85678e7"
-    }
-  ],
-  "status": true,
+  "students": [],
+  "status": false,
   "createdAt": {
     "$date": "2025-02-17T02:54:00.103Z"
   },
   "updatedAt": {
-    "$date": "2025-02-17T05:42:30.522Z"
+    "$date": "2025-02-18T02:17:18.231Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3e7d3bc00f083f071c297"
+  },
+  "name": "Psicologia Empresarial",
+  "description": "Curso para apreder de la mente humana",
+  "teacher": {
+    "$oid": "67b3e74dbc00f083f071c28f"
+  },
+  "students": [],
+  "status": true,
+  "createdAt": {
+    "$date": "2025-02-18T01:52:19.703Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T01:52:19.703Z"
   }
 }]

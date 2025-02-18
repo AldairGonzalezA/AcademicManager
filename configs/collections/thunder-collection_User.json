@@ -2,7 +2,7 @@
     "clientName": "Thunder Client",
     "collectionName": "User",
     "collectionId": "31416828-1981-4542-8428-e65c233d231a",
-    "dateExported": "2025-02-17T05:44:49.718Z",
+    "dateExported": "2025-02-18T04:29:17.415Z",
     "version": "1.2",
     "folders": [],
     "requests": [
@@ -56,7 +56,58 @@
                     "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IyYTZiNDgxMjAyYWQ4NmY3OGFmYmMiLCJpYXQiOjE3Mzk3NzA4MjgsImV4cCI6MTczOTc3NDQyOH0.Y9CPuUiGDymm4Wg0kaiyr18SgeA-AGkD6pOSAF_Ps30"
                 }
             ]
+        },
+        {
+            "_id": "9b15c90f-73ab-4752-8968-fbe4afcf41fc",
+            "colId": "31416828-1981-4542-8428-e65c233d231a",
+            "containerId": "",
+            "name": "SearchUser",
+            "url": "http://localhost:3000/academicManager/v1/users/findUser/67b01e5f919dc9bce85678e7",
+            "method": "GET",
+            "sortNum": 50000,
+            "created": "2025-02-18T02:18:55.519Z",
+            "modified": "2025-02-18T02:20:01.240Z",
+            "headers": []
+        },
+        {
+            "_id": "b39fe4da-49e2-47e6-b545-b52201189274",
+            "colId": "31416828-1981-4542-8428-e65c233d231a",
+            "containerId": "",
+            "name": "UpdateUser",
+            "url": "http://localhost:3000/academicManager/v1/users/67b3e60b3407854db036d3f4",
+            "method": "PUT",
+            "sortNum": 60000,
+            "created": "2025-02-18T02:28:08.050Z",
+            "modified": "2025-02-18T02:29:16.690Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"surname\":\"Perez\",\n  \"username\":\"Fatima_Perez\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "9e8c299e-bf77-4b52-950b-7ce5ea53f4c7",
+            "colId": "31416828-1981-4542-8428-e65c233d231a",
+            "containerId": "",
+            "name": "UpdatePassword",
+            "url": "http://localhost:3000/academicManager/v1/users/updatePassword/67b3e60b3407854db036d3f4",
+            "method": "PUT",
+            "sortNum": 70000,
+            "created": "2025-02-18T02:30:24.887Z",
+            "modified": "2025-02-18T02:31:52.753Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2N2IzZTc0ZGJjMDBmMDgzZjA3MWMyOGYiLCJpYXQiOjE3Mzk4NDU4OTksImV4cCI6MTczOTg0OTQ5OX0.C1NoPuDEaJXja7QtlSi4jLk40qGOg5-S8NzQZ-Fw7yI"
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"password\":\"11111111\"\n}",
+                "form": []
+            }
         }
     ],
-    "ref": "AuMzrIpIr_o2QgvLdTCuGySO71pIMMr2mAufuTNR6FiqAJQtJCKfiqqBJOCXwlAPIjA3AO6uF_FEWG1HV9nQ2g"
+    "ref": "AuMzrIpIr_o2QgvLdTCuG4DrWNpvxA_SW4pkpkkcrvIuaScuj53C4WrUmo8ci2wjsvm_4OVXbR3j4mbFQLX4ew"
 }

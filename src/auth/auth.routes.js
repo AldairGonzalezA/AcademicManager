@@ -22,7 +22,7 @@ router.post(
 );
 
 router.post(
-    "/registerTeacher",
+    "/registerTeachers",
     uploadProfilePicture.single("profilePicture"),
     registerValidator,
     deleteFileOnError,

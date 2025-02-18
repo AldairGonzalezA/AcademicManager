@@ -36,16 +36,13 @@
     },
     {
       "$oid": "67b01ebf919dc9bce85678ed"
-    },
-    {
-      "$oid": "67b2a4c881202ad86f78afa4"
     }
   ],
   "createdAt": {
     "$date": "2025-02-15T04:55:59.176Z"
   },
   "updatedAt": {
-    "$date": "2025-02-17T03:00:08.842Z"
+    "$date": "2025-02-18T02:16:11.994Z"
   }
 },
 {
@@ -66,5 +63,49 @@
   },
   "updatedAt": {
     "$date": "2025-02-17T05:42:30.532Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3e60b3407854db036d3f4"
+  },
+  "name": "Fatime",
+  "surname": "Perez",
+  "username": "Fatima_Perez",
+  "email": "fatima@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$WKa6WILIDMlNlQXbTL+47Q$WZbtUfjD+7RG1Jws7EuidqUP2kGWZvqH6nS5Am+Pjdk",
+  "phone": "12345678",
+  "role": "ALUMN_ROLE",
+  "estado": true,
+  "courses": [],
+  "createdAt": {
+    "$date": "2025-02-18T01:44:43.057Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T02:31:52.745Z"
+  }
+},
+{
+  "_id": {
+    "$oid": "67b3e74dbc00f083f071c28f"
+  },
+  "name": "Braulio",
+  "surname": "Martinez",
+  "username": "Profesor Braulio",
+  "email": "braulio@gmail.com",
+  "password": "$argon2id$v=19$m=65536,t=3,p=4$1DWqe0ndjfMl1icMdACNEg$/4cZLr/F2KfNa3iPpyb9WmJlibbiKK8dNBexPvltpto",
+  "phone": "94629739",
+  "role": "TEACHER_ROLE",
+  "estado": true,
+  "courses": [
+    {
+      "$oid": "67b3e7d3bc00f083f071c297"
+    }
+  ],
+  "createdAt": {
+    "$date": "2025-02-18T01:50:05.581Z"
+  },
+  "updatedAt": {
+    "$date": "2025-02-18T01:52:19.765Z"
   }
 }]

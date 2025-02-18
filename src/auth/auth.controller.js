@@ -91,6 +91,7 @@ export const registerAlumns = async (req,res) => {
 
 export const registerTeachers = async (req,res )=>{
     try {
+        const data = req.body;
         const encryptedPassword = await hash(data.password);
 
         const user = await Usuario.create({
@@ -112,7 +113,7 @@ export const registerTeachers = async (req,res )=>{
     } catch (error) {
         return res.status(500).json({
             msg:"User registration failer",
-            error: error.mesage
+            error: error.message
         })
     }
 }

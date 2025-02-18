@@ -13,6 +13,10 @@ export const saveCourse = async (req, res) =>{
             teacher: user.id
         })
 
+        await User.findByIdAndUpdate(user._id, {
+            $push: { courses: course._id}
+        })
+
         return res.status(200).json({
             message: 'Course registered successfully',
             couseDetails:{
@@ -57,8 +61,10 @@ export const getCourses = async (req = request, res = response) =>{
 
 export const getCourseById = async (req, res) =>{
     try {
-        const { id } = req.paramas;
-        const course = await Course.findById(id);
+        const { id } = req.params;
+        const course = await Course.findById(id).populate([
+            {path: 'students', select: 'name '}
+        ]);
         if(!course){
             return res.status(404).json({
                 success: false,
@@ -74,7 +80,7 @@ export const getCourseById = async (req, res) =>{
         res.status(500).json({
             success: false,
             msg:"Error to search the course",
-            error
+            error: error.message
         })
     }
 }
@@ -102,21 +108,37 @@ export const updateCourse = async (req, res = response) => {
 
 export const deleteCourse = async (req, res) => {
     try {
-        const { id } = req.paramas;
-        const course = await Course.findByIdAndUpdate(id, {estado: false}, {new: true});
-        const authoticateUser = req.user;
+        const { id } = req.params;
+        const authoticateUser = req.usuario;
+        if(authoticateUser.role === "TEACHER_ROLE"){
+            const course = await Course.findByIdAndUpdate(id, {status: false}, {new: true});
+            const students = await course.students;
+            for(let studentId of students){
+                await User.findByIdAndUpdate(studentId, {
+                    $pull: {courses: course._id}
+                });
+                await Course.findByIdAndUpdate(id, {
+                    $pull: {students: studentId}
+                });
+            }
+
+            return res.status(200).json({
+                success: true,
+                msg: 'Curso desactivado exitosamente',
+                course,
+                authoticateUser
+            });
+        }
         
-        res.status(200).json({
-            success: true,
-            msg:"Course delete successfully",
-            course,
-            authoticateUser
+        return res.status(403).json({
+            success: false,
+            msg: 'Solo un usuario con TEACHER_ROLE puede eliminar el curso'
         })
     } catch (error) {
         res.status(500).json({
             success: false,
             msg:"Error to delete the course",
-            error
+            error: error.message
         })
     }
 }
